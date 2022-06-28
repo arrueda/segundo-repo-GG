@@ -1,0 +1,66 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+
+
+<main>
+    
+    <h3 class="text-uppercase text-center">Altas de propiedades en alquiler</h3>
+
+    
+
+    <h6 class="text-uppercase">Altas y bajas de propiedades.</h6>
+<form action="alta_baja_a" method="POST">
+    {% csrf_token %}
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Tipo:</span>
+        <input type="text" name="tipo_prop_a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Tipo de propiedad" required>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Localidad:</span>
+        <input type="text" name="localidad_a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Localidad" required>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Barrio:</span>
+        <input type="text" name="barrio_a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Barrio" required>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Cant. dormitorios:</span>
+        <input type="number" name="cant_dormi_a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Dormitorios" required>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Estado (vendido/no vendido):</span>
+        <input type="text" name="estado_a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="True or False" required>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Otros (text):</span>
+        <input type="text" name="otro_cha_a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Otro texto" required>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Otro número:</span>
+        <input type="number" name="otro_ent_a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Otro número" required>
+    </div>
+
+    <div class="form group">
+        <button class="btn btn-success">Enviar</button>
+    </div>
+</form>
+
+
+   
+</main>
+
+
+
+    <h1>{{ datos_v }}</h1>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<h3>Resultado busqueda de barrio en venta:</h3>
+
+
+
+
+<main>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Tipo de inmueble</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Barrio</th>
+        <th scope="col">Cant. dormit.</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+        {% for n in venta %}
+        <tr>
+            <th scope="row">{{n.id}}</th>
+            <td>{{n.tipo_prop_v}}</td>
+            <td>{{n.localidad_v}}</td>
+            <td>{{n.barrio_v}}</td>
+            <td>{{n.cant_dormi_v}}</td>
+            <td>{{n.estado_v}}</td>
+          </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+
+</main>
+
+{% endblock %}

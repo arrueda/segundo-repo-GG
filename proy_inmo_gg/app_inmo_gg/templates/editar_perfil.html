@@ -1,0 +1,29 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<html>
+<body>
+    
+    <h1>Editar perfil</h1>
+
+    <h2>{{ usuario }}</h2>
+
+    <from actions="" method="POST">
+        {% csrf_token %}
+
+        <table>
+
+            {{ miFormulario.as_table }}
+        </table>
+
+        <button type="submit">Enviar</button>
+    </from>
+
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    
+
+<main>
+
+    <h1>Lista de inmuebles en venta</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Tipo de inmueble</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Barrio</th>
+        <th scope="col">Cant. dormit.</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+        {% for n in datos_v %}
+        <tr>
+            <th scope="row">{{n.id}}</th>
+            <td>{{n.tipo_prop_v}}</td>
+            <td>{{n.localidad_v}}</td>
+            <td>{{n.barrio_v}}</td>
+            <td>{{n.cant_dormi_v}}</td>
+            <td>{{n.estado_v}}</td>
+            {% if  request.user.is_authenticated %}
+            <td><a href="{% url 'elimina_v' n.id %}">BORRAR</a></td>
+            {% endif %}
+
+            <td><a href="{% url 'editar_venta' n.id %}">EDITAR</a></td>
+          </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+
+  {% if  request.user.is_authenticated %}
+  <button>
+    <a class="btn btn-warning" href="alta_baja_v">Agragar otro inmueble</a>
+  </button>
+  {% endif %}
+
+  <button>
+  <a class="btn btn-primary" href="buscar_barrio_v">Búsquedas en venta por barrio</a>
+  </button>
+
+</main>
+
+{% endblock %}

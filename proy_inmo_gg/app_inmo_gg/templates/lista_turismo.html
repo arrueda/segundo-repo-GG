@@ -1,0 +1,56 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    
+
+<main>
+
+    <h1>Lista de inmuebles para turismo</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Tipo de inmueble</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Barrio</th>
+        <th scope="col">Cant. dormit.</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+        {% for n in datos_t %}
+        <tr>
+            <th scope="row">{{n.id}}</th>
+            <td>{{n.tipo_prop_t}}</td>
+            <td>{{n.localidad_t}}</td>
+            <td>{{n.barrio_t}}</td>
+            <td>{{n.cant_dormi_t}}</td>
+            <td>{{n.estado_t}}</td>
+            {% if  request.user.is_authenticated %}
+            <td><a href="{% url 'elimina_t' n.id %}">BORRAR</a></td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+
+</main>
+
+{% if  request.user.is_authenticated %}
+<button>
+  <a class="btn btn-warning" href="alta_baja_t">Agragar otro inmueble</a>
+</button>
+{% endif %}
+
+<button>
+  
+  <a class="btn btn-primary" href="buscar_barrio_t">Búsquedas en turismo por barrio</a>
+  
+</button>
+
+{% endblock %}

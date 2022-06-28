@@ -1,0 +1,44 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<h3>Resultado busqueda de barrio para turismo:</h3>
+
+
+
+
+<main>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Tipo de inmueble</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Barrio</th>
+        <th scope="col">Cant. dormit.</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+        {% for n in turismo %}
+        <tr>
+            <th scope="row">{{n.id}}</th>
+            <td>{{n.tipo_prop_t}}</td>
+            <td>{{n.localidad_t}}</td>
+            <td>{{n.barrio_t}}</td>
+            <td>{{n.cant_dormi_t}}</td>
+            <td>{{n.estado_t}}</td>
+          </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+
+</main>
+
+{% endblock %}

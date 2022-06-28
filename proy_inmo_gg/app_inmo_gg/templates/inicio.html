@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<html>
+<body>
+    
+    <a href="{% url 'logout' %}">Logout</a>
+    <h1>Bienvenido, ya podes hacer altas, bajas y editar registros</h1>
+
+</body>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/app_inmo_gg/">Inicio</a>
+
+<div>
+    <img src="{{ url }}" alt="">
+</div>
+
+</html>
+
+{% endblock %}
